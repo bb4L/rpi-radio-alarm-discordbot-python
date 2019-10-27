@@ -1,0 +1,3 @@
+BOT_TOKEN=discord_token
+RPI-RADIO-ALARM-URL=rpi_radio_alarm_url
+BOT_CHANNEL=channel-to-notify
