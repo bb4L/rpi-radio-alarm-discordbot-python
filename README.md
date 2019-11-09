@@ -7,9 +7,13 @@ python discordbot for the rpi-radio-alarm
 3) ```python bot.py```
 
 ## commands
-``get alarm [id]`` the the specific alarm
+``get alarm [id]`` the specific alarm
 
 ``alarms``  list all alarms
 
 ``c alarm [id] [key] [value]``  change the alarm with the ``[id]`` and set for the acording value the key.
 There may be multiple ``[key] [value]``!  
+
+``s radio`` start the radio
+
+``st radio`` stop the radio
