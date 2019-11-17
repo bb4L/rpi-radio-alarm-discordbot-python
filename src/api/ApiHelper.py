@@ -41,10 +41,10 @@ class ApiHelper(object):
 
         return f"__**Alarm {alarm_id}**__" + self.alarm_string(resp, True)
 
-    def start_radio(self):
+    def start_radio(self, args):
         return self.__change_radio(True)
 
-    def stop_radio(self):
+    def stop_radio(self, args):
         return self.__change_radio(False)
 
     def __change_radio(self, running: bool):

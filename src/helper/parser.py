@@ -1,7 +1,7 @@
 import os
 from enum import Enum
 
-ALARM_IDX = 'alarm_idx'
+ALARM_IDX: str = 'alarm_idx'
 
 
 class COMMANDS(Enum):
