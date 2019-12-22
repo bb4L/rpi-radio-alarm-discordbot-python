@@ -2,18 +2,18 @@ import os
 import discord
 from dotenv import load_dotenv
 
-from src.api.ApiHelper import ApiHelper
-from src.helper.parser import RpiArgumentParser
+from rpiradioalarm import ApiHelper, RpiArgumentParser
+
+from src.helper.ResponseParser import DiscordResponseParser
 
 
 class RpiDiscordBot(discord.Client):
     def __init__(self):
         load_dotenv()
         self.BOT_CHANNEL = os.getenv('BOT_CHANNEL')
-
-        self.API_HELPER = ApiHelper()
+        self.BOT_NOTIFY_DIRECT = os.getenv('BOT_NOTIFY_DIRECT')
+        self.API_HELPER = ApiHelper(response_parser=DiscordResponseParser())
         self.PARSER = RpiArgumentParser()
-
         super(RpiDiscordBot, self).__init__()
 
     async def on_ready(self):
@@ -21,9 +21,6 @@ class RpiDiscordBot(discord.Client):
             for member_id, channel in guild._channels.items():
                 if channel.name == self.BOT_CHANNEL:
                     await channel.send('I am online!')
-            for member_id, member in guild._members.items():
-                if not member.bot:
-                    print(f'no bot {member}')
 
     async def on_message(self, message):
         if message.author == client.user:
